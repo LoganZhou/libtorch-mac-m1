@@ -41,7 +41,7 @@ jobs:
             -DUSE_XPU=OFF \
             -DCMAKE_INSTALL_PREFIX:PATH=../libtorch \
             -DUSE_MPS=ON  \
-            -DCMAKE_OSX_ARCHITECTURES=arm64 \
+            -DCMAKE_OSX_ARCHITECTURES=aarch64 \
             ../pytorch
           cmake --build . --target install --parallel 8
       - name: Create archive
