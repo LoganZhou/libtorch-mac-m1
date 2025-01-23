@@ -1,0 +1,16 @@
+name: Manual workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ macos-latest ]
+        try: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Run command ${{ matrix.try }}
+      run: |
+        cmake --system-information | grep CMAKE_HOST_SYSTEM_PROCESSOR
